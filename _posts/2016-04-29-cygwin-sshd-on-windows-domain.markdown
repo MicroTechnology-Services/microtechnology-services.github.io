@@ -2,6 +2,7 @@
 layout: post
 title:  "Using Cygwin sshd on a Windows Domain"
 date:   2016-04-29 16:12:54 +0000
+author: wes
 ---
 Installing cygwin sshd on a normal machine is pretty straightforward. You simply run `ssh-host-config` and walk through the prompts. On a Windows domain it's more complicated. Your sshd will still run and you can still connect and run normal commands, but as far as I can tell there's no way to elevate your permissions and do admin actions (that would trigger a UAC prompt if you were using the Windows GUI). To fix this we'll need to run sshd as a domain user that has the permissions to `setuid` like it would on a unix. For some details check [this post by Cygwin project lead Corinna Vinschen][cygwin-ml].
 
